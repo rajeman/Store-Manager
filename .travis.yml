@@ -1,15 +1,19 @@
 language: node_js
 node_js:
   - "stable"
-scripts:
-  - "npm test"
 env:
   global:
-    - CC_TEST_REPORTER_ID=76baaee499b529e48f09b8bbe25ea600d2cfa6642ee18bed78678558c1b4c226
+  - CC_TEST_REPORTER_ID=76baaee499b529e48f09b8bbe25ea600d2cfa6642ee18bed78678558c1b4c226
+addons:
+  chrome: stable
+services:
+  - postgresql
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-after_script:
+scripts:
+  - "npm test"
+after_success: 
+  - npm run coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-after_success: npm run coverage

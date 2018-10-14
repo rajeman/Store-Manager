@@ -4,7 +4,7 @@
   "description": "Store Manager is a web application that allows store owners to manage product sales, inventory and \r records",
   "main": "app.js",
   "scripts": {
-    "test": "export current_env=test || SET \"current_env=test\" && npm run build && nyc mocha dist/test/*.test.js --exit --timeout=20000",
+    "test": "export current_env=test || SET \"current_env=test\" && npm run build && nyc --reporter=lcov --reporter=text --cache mocha dist/test/*.test.js --exit --timeout=20000",
     "start": "npm run build && node dist/app.js",
     "lint": "./node_modules/.bin/eslint server --fix",
     "clean": "rm -rf dist",
@@ -28,16 +28,16 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.2",
     "expect": "^23.6.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
