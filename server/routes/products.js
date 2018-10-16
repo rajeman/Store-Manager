@@ -14,7 +14,7 @@ const verifyParameters = (req, res, next) => {
     });
     return;
   }
-  if (parameter && parameter.name.length > 2 && isPositiveInteger(parameter.minInvent)
+  if (parameter && parameter.name && parameter.name.trim().length > 2 && isPositiveInteger(parameter.minInvent)
     && isPositiveInteger(parameter.quantity) && isPositiveInteger(parameter.price)) {
     next();
   } else {
