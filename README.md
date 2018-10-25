@@ -33,6 +33,7 @@ records
 |GET /sales/:saleId|Fetch a single sale record|Get a specific sale record using the id. Endpoint is accessible to  the store owner/admin or the sale attendant that created the record. Admin must supply the query parameter: "level=2". The attendant must supply the query parameter: "attendantId=x", where 'x' is the attendant's id.|
 |POST /products|Create a product|Creates a new product record. Endpoint is accessible to only the store owner/admin. Admin must supply the query parameter: "level=2".|
 |POST /sales|Create a sale order|Creates a sale order. Endpoint is accessible to only the store owner/admin. Admin must supply the query parameter: "level=2"|
+|POST /auth/signup|Register a user |This endpoint creates a new store attendant and is available to only the admin. Admin must be logged in to use this route|
 
 
 # Credits

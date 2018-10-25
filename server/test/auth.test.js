@@ -16,9 +16,9 @@ describe('POST /signup', () => {
   it('should create a new attendant for an admin', () => request(app)
     .post('/api/v1/auth/signup')
     .send({
-      name: "Mr Attendant Brown",
-      email: "mrsmith@gmail.com",
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw"
+      name: 'Mr Attendant Brown',
+      email: 'mrsmith@gmail.com',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw',
     })
     .set('Accept', 'application/json')
     .expect(201)
@@ -31,12 +31,12 @@ describe('POST /signup', () => {
         });
     }));
 
- it('should create a new attendant with invalid name', () => request(app)
+  it('should create a new attendant with invalid name', () => request(app)
     .post('/api/v1/auth/signup')
     .send({
-      name: "",
-      email: "mrstee@gmail.com",
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw"
+      name: '',
+      email: 'mrstee@gmail.com',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw',
     })
     .set('Accept', 'application/json')
     .expect(400)
@@ -44,12 +44,12 @@ describe('POST /signup', () => {
       expect(response.body.error).toContain('Invalid input');
     }));
 
- it('should create a new attendant with invalid email', () => request(app)
+  it('should create a new attendant with invalid email', () => request(app)
     .post('/api/v1/auth/signup')
     .send({
-      name: "Mrs Valid name",
-      email: "Mrs Invalid Email",
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw"
+      name: 'Mrs Valid name',
+      email: 'Mrs Invalid Email',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw',
     })
     .set('Accept', 'application/json')
     .expect(400)
@@ -60,9 +60,9 @@ describe('POST /signup', () => {
   it('should not create a new attendant for an email in use', () => request(app)
     .post('/api/v1/auth/signup')
     .send({
-      name: "Mr New Attendant Brown",
-      email: "mrsmith@gmail.com",
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw"
+      name: 'Mr New Attendant Brown',
+      email: 'mrsmith@gmail.com',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw',
     })
     .set('Accept', 'application/json')
     .expect(409)
@@ -75,19 +75,16 @@ describe('POST /signup', () => {
         });
     }));
 
-   it('should not create a new attendant for an invalid admin token', () => request(app)
+  it('should not create a new attendant for an invalid admin token', () => request(app)
     .post('/api/v1/auth/signup')
     .send({
-      name: "Mr Attendant Bale",
-      email: "mrbale@gmail.com",
-      token: "byJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw"
+      name: 'Mr Attendant Bale',
+      email: 'mrbale@gmail.com',
+      token: 'byJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjMwMywidXNlcm5hbWUiOiJKZWZmZXJzb24gUGlwZXIiLCJlbWFpbCI6ImpwaXBlckBhZG1pbi5jb20iLCJ1c2VySWQiOjEsImxldmVsIjoyLCJpYXQiOjE1NDA0NTMyMDJ9.HplqH5tLSIr5_l69D2FuUs3mpyBqtZjFSEouLSuIFGw',
     })
     .set('Accept', 'application/json')
     .expect(403)
     .then((response) => {
       expect(response.body.error).toContain('Invalid');
     }));
-
-
-  
 });

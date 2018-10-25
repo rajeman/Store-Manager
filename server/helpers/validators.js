@@ -1,7 +1,7 @@
 import validator from 'validator';
 import jwt from 'jsonwebtoken';
-import { productsMap } from '../models/products';
 import dotenv from 'dotenv';
+import { productsMap } from '../models/products';
 
 dotenv.config();
 let secretKey = process.env.TOKEN_KEY;
