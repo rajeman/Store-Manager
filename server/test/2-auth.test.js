@@ -107,7 +107,7 @@ describe('POST /login', () => {
       password: 'adminpassword',
     })
     .set('Accept', 'application/json')
-    .expect(303)
+    .expect(200)
     .then((response) => {
       expect(response.body.message).toContain('successfully logged');
       expect(response.body.token).toBeTruthy();
@@ -133,7 +133,7 @@ describe('POST /login', () => {
       password: 'attendantpassword',
     })
     .set('Accept', 'application/json')
-    .expect(303)
+    .expect(200)
     .then((response) => {
       expect(response.body.message).toContain('successfully logged');
       expect(response.body.token).toBeTruthy();
@@ -146,7 +146,7 @@ describe('POST /login', () => {
       password: 'attendantpassword',
     })
     .set('Accept', 'application/json')
-    .expect(303)
+    .expect(200)
     .then((response) => {
       expect(response.body.message).toContain('successfully logged');
       expect(response.body.token).toBeTruthy();

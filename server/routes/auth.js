@@ -77,7 +77,7 @@ authRouter.post('/login', (req, res) => {
         payload.level = result[0].user_level;
         const token = jwt.sign(payload, secretKey);
         res.header('Authorization', `Bearer ${token}`);
-        res.status(303).send({
+        res.status(200).send({
           message: 'successfully logged in',
           level: result[0].user_level,
           token,
