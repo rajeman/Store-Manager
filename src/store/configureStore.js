@@ -5,7 +5,6 @@ import authReducer from '../reducers/auth';
 import saleReducer from '../reducers/records'
 import navigationReducer from '../reducers/navigation';
 import attendantReducer from '../reducers/attendants';
-import cartReducer from '../reducers/cart';
 //import cartReducer from '../reducers/filters';
 
 export default () => createStore(
@@ -14,8 +13,7 @@ export default () => createStore(
         auth: authReducer,
         navigation: navigationReducer,
         sales: saleReducer,
-        attendants: attendantReducer,
-        cart: cartReducer
+        attendants: attendantReducer
     }), applyMiddleware(thunk));
 
 

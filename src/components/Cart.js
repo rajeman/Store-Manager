@@ -1,32 +1,33 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import CartItem from './CartItem';
-import { fetchCartProducts } from '../helpers/cart'; 
 
-class Cart extends React.Component {
-
-    handleCheckout = () => {
-        toast('What a Toast!!', {
-            hideProgressBar: true
-        });
-
+export default class Cart extends React.Component {
+   handleCheckout = ()=>{
+       toast('What a Toast!!', {
+           hideProgressBar: true
+       });
+       
     }
     render() {
-        const { email } = this.props.auth.userDetails;
-        const products = fetchCartProducts(email) != undefined ? fetchCartProducts(email): [];
-        
         return (
             <div className="container">
                 <div className="wrapper">
-                    <div className="container">
-                        <div className="wrapper">
-                            <span className="tip">Click on item to remove</span>
+                    <div class="container">
+                        <div class="wrapper">
+                            <span class="tip">Click on item to remove</span>
                             <input type="button" class="confirm checkout" value="checkout" onClick={this.handleCheckout}></input>
-                            <div className="items-box">
-                            {products.map((product)=>
-                                <CartItem item = {product}/>
-                                )}
+                            <div class="items-box">
+                                <div class="item" onclick="gotoProductAttendant()">
+                                    <img src={require('../images/item1.jpg')} />
+                                    <div class="quant-avail">
+                                    </div>
+                                    <div class="name-description">
+                                    </div>
+                                    <div class="price">
+                                        $<span class="actual-price"></span> per item
+                            </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,5 @@ class Cart extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => state;
 
-export default connect( mapStateToProps)(Cart); 
 

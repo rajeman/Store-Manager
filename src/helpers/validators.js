@@ -1,1 +1,0 @@
-export const isPositiveInteger = s => /^\+?[1-9][\d]*$/.test(s);
