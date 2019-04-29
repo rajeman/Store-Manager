@@ -1,57 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import CartItem from './CartItem';
-import CartRemoveModal from './CartRemoveModal';
-import { fetchCartProducts, removeCartProduct } from '../helpers/cart'; 
-import { checkoutProducts } from '../actions/cart';
+import { fetchCartProducts } from '../helpers/cart'; 
 
 class Cart extends React.Component {
 
-    state = {
-        cartRemoveModal: 'STATE_INVISIBLE',
-        selectedProductId: undefined
-    }
     handleCheckout = () => {
-        const { email } = this.props.auth.userDetails;
-        const productsToCheckout  = fetchCartProducts(email).map((item)=> ({
-            productQuantity: item.product_quantity,
-            productId: item.product_id
-        }));
-        this.props.dispatch(checkoutProducts(productsToCheckout, email));
-    }
-    handleClick = (id) => {
-        this.setState(()=>{
-            return {
-                cartRemoveModal: 'STATE_VISIBLE',
-                selectedProductId: id
-            }
-        });
-    }
-    handleCancelModal = () => {
-        this.setState(()=>{
-            return {
-                cartRemoveModal: 'STATE_INVISIBLE'
-            }
-        });
-    }
-
-    handleRemoveItem = () => {
-     const remove =  removeCartProduct(this.props.auth.userDetails.email, 
-        this.state.selectedProductId);
-    if(remove === 'REMOVE_SUCCESS'){
-        /* toast.success('Item removed', {
+        toast('What a Toast!!', {
             hideProgressBar: true
         });
- */
-        this.setState(()=>{
-            return {
-                cartRemoveModal: 'STATE_INVISIBLE'
-            }
-        });
 
     }
-
-    };
     render() {
         const { email } = this.props.auth.userDetails;
         const products = fetchCartProducts(email) != undefined ? fetchCartProducts(email): [];
@@ -61,18 +21,16 @@ class Cart extends React.Component {
                 <div className="wrapper">
                     <div className="container">
                         <div className="wrapper">
-                            {products.length != 0 && <span className="tip">Click on item to remove</span>}
-                            {products.length != 0 && <input type="button" class="confirm checkout" value="checkout" onClick={this.handleCheckout}></input>}
+                            <span className="tip">Click on item to remove</span>
+                            <input type="button" class="confirm checkout" value="checkout" onClick={this.handleCheckout}></input>
                             <div className="items-box">
                             {products.map((product)=>
-                                <CartItem item = {product} handleClick ={this.handleClick}/>
+                                <CartItem item = {product}/>
                                 )}
                             </div>
                         </div>
                     </div>
                 </div>
-                {this.state.cartRemoveModal === 'STATE_VISIBLE' && <CartRemoveModal handleCancel = {this.handleCancelModal}
-                                                                        handleRemoveItem={this.handleRemoveItem}/>}
             </div>
 
         );

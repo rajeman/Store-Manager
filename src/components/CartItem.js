@@ -3,12 +3,10 @@ import React from 'react';
 
 export default (props) => (
       
-    <div className="item" onClick={()=>{
-        props.handleClick(props.item.product_id)
-    }}>
+    <div className="item" onclick="gotoProductAttendant()">
         <img src={require('../images/item1.jpg')} />
         <div className="quant-avail">
-        {props.item.product_quantity} in cart
+        {props.item.product_quantity}
         </div>
         <div className="name-description">
         {props.item.product_name}

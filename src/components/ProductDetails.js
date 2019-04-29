@@ -38,11 +38,7 @@ class ProductDetails extends React.Component {
             });
             return
            }
-           const cartProduct = {
-               ...product[0],
-               product_quantity: quantity
-           }
-           const result = addProductToCart(this.props.auth.userDetails.email, cartProduct);
+           const result = addProductToCart(this.props.auth.userDetails.email, product[0]);
            if(result === 'ADD_SUCCESS'){
             toast.success('Product Successfully Added', {
                 hideProgressBar: true
