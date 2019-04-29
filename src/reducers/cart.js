@@ -1,8 +1,6 @@
 
 const defaultState = {
-    cartAddModalState: '',
-    checkoutState: '',
-    checkoutError: ''
+    cartAddModalState: ''
 };
 
 
@@ -12,16 +10,6 @@ const defaultState = {
             return {
                 ...state,
             cartAddModalState: action.cartAddModalState
-        }
-        case 'SET_CHECK_OUT_STATE':
-            return {
-                ...state,
-            checkoutState: action.checkoutState
-        }
-        case 'SET_CHECK_OUT_ERROR':
-            return {
-                ...state,
-            checkoutError: action.checkoutError
         }
         default : 
             return state
